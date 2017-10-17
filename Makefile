@@ -1,5 +1,5 @@
 PKG_NAME := pangomm
-URL := http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
-ARCHIVES :=
+URL := https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
+
 
 include ../common/Makefile.common

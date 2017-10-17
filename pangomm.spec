@@ -4,10 +4,10 @@
 #
 Name     : pangomm
 Version  : 2.40.1
-Release  : 2
-URL      : http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
-Source0  : http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
-Summary  : C++ binding for Pango, not installed
+Release  : 3
+URL      : https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
+Source0  : https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
+Summary  : C++ binding for Pango
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: pangomm-lib
@@ -52,7 +52,11 @@ lib components for the pangomm package.
 %setup -q -n pangomm-2.40.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
+export SOURCE_DATE_EPOCH=1508276095
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -60,10 +64,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
+export SOURCE_DATE_EPOCH=1508276095
 rm -rf %{buildroot}
 %make_install
 
@@ -382,10 +387,11 @@ rm -rf %{buildroot}
 /usr/include/pangomm-1.4/pangomm/tabarray.h
 /usr/include/pangomm-1.4/pangomm/types.h
 /usr/include/pangomm-1.4/pangomm/wrap_init.h
-/usr/lib64/*.so
+/usr/lib64/libpangomm-1.4.so
 /usr/lib64/pangomm-1.4/include/pangommconfig.h
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/pkgconfig/pangomm-1.4.pc
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libpangomm-1.4.so.1
+/usr/lib64/libpangomm-1.4.so.1.0.30
