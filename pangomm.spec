@@ -4,7 +4,7 @@
 #
 Name     : pangomm
 Version  : 2.40.1
-Release  : 3
+Release  : 4
 URL      : https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
 Source0  : https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
 Summary  : C++ binding for Pango
