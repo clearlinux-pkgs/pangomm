@@ -4,7 +4,7 @@
 #
 Name     : pangomm
 Version  : 2.40.1
-Release  : 5
+Release  : 6
 URL      : https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
 Source0  : https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz
 Summary  : C++ binding for Pango
@@ -39,6 +39,14 @@ Provides: pangomm-devel
 dev components for the pangomm package.
 
 
+%package doc
+Summary: doc components for the pangomm package.
+Group: Documentation
+
+%description doc
+doc components for the pangomm package.
+
+
 %package lib
 Summary: lib components for the pangomm package.
 Group: Libraries
@@ -56,9 +64,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1508276095
+export SOURCE_DATE_EPOCH=1526568547
 %configure --disable-static
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %check
 export LANG=C
@@ -68,7 +76,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1508276095
+export SOURCE_DATE_EPOCH=1526568547
 rm -rf %{buildroot}
 %make_install
 
@@ -81,6 +89,69 @@ rm -rf %{buildroot}
 %files data
 %defattr(-,root,root,-)
 /usr/share/devhelp/books/pangomm-1.4/pangomm-1.4.devhelp2
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/pangomm-1.4/pangomm.h
+/usr/include/pangomm-1.4/pangomm/attributes.h
+/usr/include/pangomm-1.4/pangomm/attriter.h
+/usr/include/pangomm-1.4/pangomm/attrlist.h
+/usr/include/pangomm-1.4/pangomm/cairofontmap.h
+/usr/include/pangomm-1.4/pangomm/color.h
+/usr/include/pangomm-1.4/pangomm/context.h
+/usr/include/pangomm-1.4/pangomm/coverage.h
+/usr/include/pangomm-1.4/pangomm/font.h
+/usr/include/pangomm-1.4/pangomm/fontdescription.h
+/usr/include/pangomm-1.4/pangomm/fontface.h
+/usr/include/pangomm-1.4/pangomm/fontfamily.h
+/usr/include/pangomm-1.4/pangomm/fontmap.h
+/usr/include/pangomm-1.4/pangomm/fontmetrics.h
+/usr/include/pangomm-1.4/pangomm/fontset.h
+/usr/include/pangomm-1.4/pangomm/glyph.h
+/usr/include/pangomm-1.4/pangomm/glyphstring.h
+/usr/include/pangomm-1.4/pangomm/init.h
+/usr/include/pangomm-1.4/pangomm/item.h
+/usr/include/pangomm-1.4/pangomm/language.h
+/usr/include/pangomm-1.4/pangomm/layout.h
+/usr/include/pangomm-1.4/pangomm/layoutiter.h
+/usr/include/pangomm-1.4/pangomm/layoutline.h
+/usr/include/pangomm-1.4/pangomm/layoutrun.h
+/usr/include/pangomm-1.4/pangomm/private/attributes_p.h
+/usr/include/pangomm-1.4/pangomm/private/attriter_p.h
+/usr/include/pangomm-1.4/pangomm/private/attrlist_p.h
+/usr/include/pangomm-1.4/pangomm/private/cairofontmap_p.h
+/usr/include/pangomm-1.4/pangomm/private/color_p.h
+/usr/include/pangomm-1.4/pangomm/private/context_p.h
+/usr/include/pangomm-1.4/pangomm/private/coverage_p.h
+/usr/include/pangomm-1.4/pangomm/private/font_p.h
+/usr/include/pangomm-1.4/pangomm/private/fontdescription_p.h
+/usr/include/pangomm-1.4/pangomm/private/fontface_p.h
+/usr/include/pangomm-1.4/pangomm/private/fontfamily_p.h
+/usr/include/pangomm-1.4/pangomm/private/fontmap_p.h
+/usr/include/pangomm-1.4/pangomm/private/fontmetrics_p.h
+/usr/include/pangomm-1.4/pangomm/private/fontset_p.h
+/usr/include/pangomm-1.4/pangomm/private/glyph_p.h
+/usr/include/pangomm-1.4/pangomm/private/glyphstring_p.h
+/usr/include/pangomm-1.4/pangomm/private/item_p.h
+/usr/include/pangomm-1.4/pangomm/private/language_p.h
+/usr/include/pangomm-1.4/pangomm/private/layout_p.h
+/usr/include/pangomm-1.4/pangomm/private/layoutiter_p.h
+/usr/include/pangomm-1.4/pangomm/private/layoutline_p.h
+/usr/include/pangomm-1.4/pangomm/private/layoutrun_p.h
+/usr/include/pangomm-1.4/pangomm/private/rectangle_p.h
+/usr/include/pangomm-1.4/pangomm/private/renderer_p.h
+/usr/include/pangomm-1.4/pangomm/private/tabarray_p.h
+/usr/include/pangomm-1.4/pangomm/rectangle.h
+/usr/include/pangomm-1.4/pangomm/renderer.h
+/usr/include/pangomm-1.4/pangomm/tabarray.h
+/usr/include/pangomm-1.4/pangomm/types.h
+/usr/include/pangomm-1.4/pangomm/wrap_init.h
+/usr/lib64/libpangomm-1.4.so
+/usr/lib64/pangomm-1.4/include/pangommconfig.h
+/usr/lib64/pkgconfig/pangomm-1.4.pc
+
+%files doc
+%defattr(-,root,root,-)
 /usr/share/doc/pangomm-1.4/images/gtkmm_logo.gif
 /usr/share/doc/pangomm-1.4/images/top.gif
 /usr/share/doc/pangomm-1.4/reference/html/annotated.html
@@ -330,66 +401,6 @@ rm -rf %{buildroot}
 /usr/share/doc/pangomm-1.4/reference/html/tab_s.png
 /usr/share/doc/pangomm-1.4/reference/html/tabs.css
 /usr/share/doc/pangomm-1.4/reference/pangomm-1.4.tag
-
-%files dev
-%defattr(-,root,root,-)
-/usr/include/pangomm-1.4/pangomm.h
-/usr/include/pangomm-1.4/pangomm/attributes.h
-/usr/include/pangomm-1.4/pangomm/attriter.h
-/usr/include/pangomm-1.4/pangomm/attrlist.h
-/usr/include/pangomm-1.4/pangomm/cairofontmap.h
-/usr/include/pangomm-1.4/pangomm/color.h
-/usr/include/pangomm-1.4/pangomm/context.h
-/usr/include/pangomm-1.4/pangomm/coverage.h
-/usr/include/pangomm-1.4/pangomm/font.h
-/usr/include/pangomm-1.4/pangomm/fontdescription.h
-/usr/include/pangomm-1.4/pangomm/fontface.h
-/usr/include/pangomm-1.4/pangomm/fontfamily.h
-/usr/include/pangomm-1.4/pangomm/fontmap.h
-/usr/include/pangomm-1.4/pangomm/fontmetrics.h
-/usr/include/pangomm-1.4/pangomm/fontset.h
-/usr/include/pangomm-1.4/pangomm/glyph.h
-/usr/include/pangomm-1.4/pangomm/glyphstring.h
-/usr/include/pangomm-1.4/pangomm/init.h
-/usr/include/pangomm-1.4/pangomm/item.h
-/usr/include/pangomm-1.4/pangomm/language.h
-/usr/include/pangomm-1.4/pangomm/layout.h
-/usr/include/pangomm-1.4/pangomm/layoutiter.h
-/usr/include/pangomm-1.4/pangomm/layoutline.h
-/usr/include/pangomm-1.4/pangomm/layoutrun.h
-/usr/include/pangomm-1.4/pangomm/private/attributes_p.h
-/usr/include/pangomm-1.4/pangomm/private/attriter_p.h
-/usr/include/pangomm-1.4/pangomm/private/attrlist_p.h
-/usr/include/pangomm-1.4/pangomm/private/cairofontmap_p.h
-/usr/include/pangomm-1.4/pangomm/private/color_p.h
-/usr/include/pangomm-1.4/pangomm/private/context_p.h
-/usr/include/pangomm-1.4/pangomm/private/coverage_p.h
-/usr/include/pangomm-1.4/pangomm/private/font_p.h
-/usr/include/pangomm-1.4/pangomm/private/fontdescription_p.h
-/usr/include/pangomm-1.4/pangomm/private/fontface_p.h
-/usr/include/pangomm-1.4/pangomm/private/fontfamily_p.h
-/usr/include/pangomm-1.4/pangomm/private/fontmap_p.h
-/usr/include/pangomm-1.4/pangomm/private/fontmetrics_p.h
-/usr/include/pangomm-1.4/pangomm/private/fontset_p.h
-/usr/include/pangomm-1.4/pangomm/private/glyph_p.h
-/usr/include/pangomm-1.4/pangomm/private/glyphstring_p.h
-/usr/include/pangomm-1.4/pangomm/private/item_p.h
-/usr/include/pangomm-1.4/pangomm/private/language_p.h
-/usr/include/pangomm-1.4/pangomm/private/layout_p.h
-/usr/include/pangomm-1.4/pangomm/private/layoutiter_p.h
-/usr/include/pangomm-1.4/pangomm/private/layoutline_p.h
-/usr/include/pangomm-1.4/pangomm/private/layoutrun_p.h
-/usr/include/pangomm-1.4/pangomm/private/rectangle_p.h
-/usr/include/pangomm-1.4/pangomm/private/renderer_p.h
-/usr/include/pangomm-1.4/pangomm/private/tabarray_p.h
-/usr/include/pangomm-1.4/pangomm/rectangle.h
-/usr/include/pangomm-1.4/pangomm/renderer.h
-/usr/include/pangomm-1.4/pangomm/tabarray.h
-/usr/include/pangomm-1.4/pangomm/types.h
-/usr/include/pangomm-1.4/pangomm/wrap_init.h
-/usr/lib64/libpangomm-1.4.so
-/usr/lib64/pangomm-1.4/include/pangommconfig.h
-/usr/lib64/pkgconfig/pangomm-1.4.pc
 
 %files lib
 %defattr(-,root,root,-)
