@@ -1,3 +1,110 @@
+2018-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	2.42.0
+
+2018-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	FontDescription: Add set/get_variations()
+
+2018-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	Attribute: Add several create_attr_*() methods
+
+	* pango/src/attributes.[ccg|hg]: Add create_attr_size_absolute(),
+	create_attr_underline_color(), create_attr_strikethrough_color(),
+	create_attr_fallback(), create_attr_letter_spacing(),
+	create_attr_gravity(), create_attr_gravity_hint(),
+	create_attr_font_features(). Fixes #2
+
+2018-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	Regenerate .defs and docs.xml files
+
+2018-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	Add tools/gen_scripts/generate_all.sh
+
+2018-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	2.40.2
+
+2018-10-29  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+	Update .gitignore
+
+	The Visual Studio build files is now under MSVC_NMake, not MSVC_201x.
+
+2018-10-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+	build: Remove Visual Studio 2013 projects
+
+	Since they have been superseded by the NMake Makefiles, it is time to
+	remove them.
+
+2018-10-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+	build: Add NMake Makefiles
+
+	This adds a set of NMake Makefiles, which will replace the Visual Studio
+	2013 projects so that the Visual Studio build files are more flexible
+	and easier to maintain.
+
+	Note that since this is the C++-11 version of pangomm, for Visual Studio
+	2015 and 2017, since they both link to the v140 Windows C/C++ runtime
+	DLLs, the pangomm DLL and .lib are named as pangomm-vc140-1_4.[dll|lib]
+	or pangomm-vc140-d-1_4.[dll|lib], since these builds can interop.
+
+2018-10-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+	build: Split out automake'isms out from filelist.am's
+
+	This is so that the NMake Makefiles can consume them as well.
+
+2018-10-26  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	configure.ac: Update bug report address
+
+2018-09-07  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+	builds: Rename MSVC_Net2013 to MSVC_NMake
+
+	This is to prepare the transition of the Visual Studio build files
+	to NMake Makeflies.
+
+2017-09-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	Update .gitignore
+
+2017-09-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	GlyphString: Remove some functions from _IGNORE()
+
+2017-09-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	Add PangoCoverage to pango_extra_objects.defs
+
+2017-09-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+	tools/gen_scripts/: Update for pango built with meson
+
+	When pango is built with meson instead of autotools, generated .h and .c
+	files are stored in pango/build/pango. Files in that directory shall be read
+	when pango_docs.xml and the .defs files are generated.
+
+	Don't read private and internal .h files.
+
+2017-01-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+	Visual Studio builds: "Install" .pdb files
+
+	Since we already generate the .pdb files during the build, make better use
+	of them so that we could debug easier.  Also clean up the property sheet
+	by removing extra blank lines.
+
+2016-08-19  Murray Cumming  <murrayc@murrayc.com>
+
+	2.40.1
+
 2016-07-19  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
 
 	Build: Fix silent builds
