@@ -4,10 +4,10 @@
 #
 Name     : pangomm
 Version  : 2.42.0
-Release  : 7
+Release  : 8
 URL      : https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
 Source0  : https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
-Summary  : C++ binding for Pango
+Summary  : C++ bindings for Pango
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: pangomm-data = %{version}-%{release}
@@ -19,8 +19,15 @@ BuildRequires : pkgconfig(glibmm-2.4)
 BuildRequires : pkgconfig(pangocairo)
 
 %description
-This is pangomm, a C++ API for Pango.
-See http://www.gtkmm.org/
+Building gtkmm on Win32
+===========================
+Currently, both the mingw (native win32) gcc compiler and MS Visual
+Studio 2013 are supported. gtkmm can be built with mingw32-gcc using
+the gnu autotools (automake, autoconf, libtool). As explicitly
+stated in the gtk+ for win32 distribution (http://www.gimp.org/win32/),
+the gcc compiler provided by the cygwin distribution should not be
+used to build gtk+/gtkmm libraries and/or applications (see the
+conflicts between the cygwin and msvcrt runtime environments.
 
 %package data
 Summary: data components for the pangomm package.
@@ -36,6 +43,7 @@ Group: Development
 Requires: pangomm-lib = %{version}-%{release}
 Requires: pangomm-data = %{version}-%{release}
 Provides: pangomm-devel = %{version}-%{release}
+Requires: pangomm = %{version}-%{release}
 
 %description dev
 dev components for the pangomm package.
@@ -75,7 +83,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545403799
+export SOURCE_DATE_EPOCH=1557022190
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -87,7 +102,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1545403799
+export SOURCE_DATE_EPOCH=1557022190
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pangomm
 cp COPYING %{buildroot}/usr/share/package-licenses/pangomm/COPYING
