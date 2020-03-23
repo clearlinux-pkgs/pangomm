@@ -1,0 +1,1 @@
+Configure miss: if g++ -std=c++11 static flag -static works
