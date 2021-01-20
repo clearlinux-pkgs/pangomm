@@ -1,0 +1,5 @@
+2.48.0
+doxygen
+pkgconfig(cairomm-1.16)
+pkgconfig(glibmm-2.68)
+pkgconfig(mm-common-libstdc++)
